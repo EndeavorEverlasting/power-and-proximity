@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "artifacts": [
+    {
+      "id": "operator-report-template",
+      "path": "harness/reports/OPERATOR_REPORT.md",
+      "kind": "template",
+      "owner": "all-sprints",
+      "commitPolicy": "committed"
+    },
+    {
+      "id": "handoff-template",
+      "path": "harness/reports/HANDOFF.md",
+      "kind": "template",
+      "owner": "all-sprints",
+      "commitPolicy": "committed"
+    },
+    {
+      "id": "run-context-example",
+      "path": "harness/run-context.example.json",
+      "kind": "example",
+      "owner": "harness",
+      "commitPolicy": "committed"
+    },
+    {
+      "id": "local-run-context",
+      "path": "harness/run-context.local.json",
+      "kind": "runtime-context",
+      "owner": "current-sprint",
+      "commitPolicy": "ignored"
+    },
+    {
+      "id": "generated-validation-report",
+      "path": "reports/generated/harness-validation.json",
+      "kind": "generated-evidence",
+      "owner": "harness-validator",
+      "commitPolicy": "ignored-unless-promoted"
+    }
+  ]
+}

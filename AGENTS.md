@@ -2,6 +2,23 @@
 
 This repository uses harness discipline for software, documentation, automation, deployment, GitHub, and agent work.
 
+## Harness entrypoint
+
+Prompts are one input artifact inside the harness; they are not the harness itself.
+
+A fresh agent must enter in this order:
+
+1. read this file;
+2. read `harness/README.md`;
+3. inspect `harness/CODEBASE_MAP.md`;
+4. populate or review the active run context using `harness/run-context.example.json`;
+5. choose the narrowest matching workflow in `harness/workflows/`;
+6. load only the scoped skills required for that workflow;
+7. review `harness/artifacts.json` before generating outputs;
+8. run `python3 scripts/validate_harness.py` before final handoff.
+
+Machine-readable harness references live in `harness/manifest.json`. Local run state belongs in the ignored `harness/run-context.local.json`; generated reports belong under the ignored `reports/generated/` unless explicitly promoted and registered as committed evidence.
+
 ## Required operating context
 
 Every sprint or handoff must name:
@@ -79,7 +96,7 @@ Preserve useful work before destructive cleanup. If the worktree is dirty and th
 - Default foundation branch: `feature/power-proximity-foundation`.
 - Prefer draft PRs until validation is complete.
 - PR bodies must state mission, lane, owned scope, forbidden scope, artifacts, validation, gaps, and next decision.
-- Keep docs, schemas, engine changes, content packs, and runtime proofs separable when practical.
+- Keep docs, schemas, engine changes, content packs, harness changes, and runtime proofs separable when practical.
 
 ## Validation order
 
@@ -90,7 +107,8 @@ Unless a sprint defines a stricter order:
 3. unit validation: deterministic formulas and graph behavior;
 4. build validation;
 5. runtime proof with generated artifacts;
-6. Git and GitHub state verification.
+6. harness validation;
+7. Git and GitHub state verification.
 
 Record exact skips. “Not applicable” is different from “not run.”
 
@@ -114,7 +132,7 @@ Use the established sequence when applicable:
 - **P20**: execute a selected Opportunity Discovery row;
 - **P12**: closeout.
 
-Task-specific rules override generic closeout behavior.
+Task-specific rules override generic closeout behavior. Repo-local workflow specifications for P03, P07, and P12 live under `harness/workflows/`; add further workflows only when they have a distinct operational contract.
 
 ## Required final handoff
 
@@ -131,5 +149,7 @@ Every repo sprint report should include:
 - known gaps and risks;
 - untracked, modified, or ignored candidates;
 - next bounded decision.
+
+Use `harness/reports/OPERATOR_REPORT.md` for full evidence and `harness/reports/HANDOFF.md` for compressed transfer.
 
 Do not substitute a rewritten prompt, plan, or handoff for requested repository work.

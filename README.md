@@ -121,6 +121,18 @@ The foundation sprint will not attempt to build:
 - monetization or premium auto-mode;
 - complete politics, gym, police, research, or technology packs.
 
+## Repo-local AI harness
+
+The repository treats prompts as one artifact inside a larger operating system. A fresh agent should begin with:
+
+1. [AGENTS.md](AGENTS.md)
+2. [harness/README.md](harness/README.md)
+3. [harness/CODEBASE_MAP.md](harness/CODEBASE_MAP.md)
+4. the matching workflow under `harness/workflows/`
+5. `python3 scripts/validate_harness.py`
+
+The harness includes run context, workflow contracts, artifact registration, scoped skills, read-only evidence commands, an optional local hook, English operator reporting, and compressed handoff templates.
+
 ## Repository discipline
 
 Repository work follows the operational loop:
