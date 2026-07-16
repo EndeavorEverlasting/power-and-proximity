@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/power-and-proximity/run-context.schema.json",
+  "title": "Power & Proximity harness run context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "repo",
+    "branchOrWorktree",
+    "sprint",
+    "lane",
+    "ownedScope",
+    "forbiddenScope",
+    "expectedArtifacts",
+    "validationOrder",
+    "evidenceReviewed",
+    "nextDecision"
+  ],
+  "properties": {
+    "repo": {"type": "string", "minLength": 1},
+    "branchOrWorktree": {"type": "string", "minLength": 1},
+    "sprint": {"type": "string", "minLength": 1},
+    "lane": {"type": "string", "minLength": 1},
+    "ownedScope": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "forbiddenScope": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "expectedArtifacts": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "validationOrder": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "evidenceReviewed": {"type": "array", "items": {"type": "string"}},
+    "knownBlockers": {"type": "array", "items": {"type": "string"}},
+    "parallelSafety": {"type": "string"},
+    "nextDecision": {"type": "string", "minLength": 1}
+  }
+}

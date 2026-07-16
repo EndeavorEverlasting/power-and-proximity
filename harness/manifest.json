@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "name": "power-and-proximity-ai-harness",
+  "entrypoint": "harness/README.md",
+  "agentRules": "AGENTS.md",
+  "codebaseMap": "harness/CODEBASE_MAP.md",
+  "runContext": {
+    "schema": "harness/run-context.schema.json",
+    "example": "harness/run-context.example.json",
+    "local": "harness/run-context.local.json"
+  },
+  "artifactRegistry": "harness/artifacts.json",
+  "validator": "scripts/validate_harness.py",
+  "hook": ".githooks/pre-commit",
+  "workflows": [
+    "harness/workflows/P03_REPO_INTAKE.md",
+    "harness/workflows/P07_IMPLEMENTATION.md",
+    "harness/workflows/P12_CLOSEOUT.md"
+  ],
+  "skills": [
+    "harness/skills/README.md"
+  ],
+  "reports": [
+    "harness/reports/OPERATOR_REPORT.md",
+    "harness/reports/HANDOFF.md"
+  ],
+  "readOnlyIntelligence": [
+    "git status --short",
+    "git branch --show-current",
+    "git log --oneline --decorate -12",
+    "git ls-files",
+    "git grep -n <term>",
+    "find . -maxdepth 3 -type f | sort"
+  ],
+  "generatedOutputPolicy": {
+    "localContext": "harness/run-context.local.json",
+    "generatedReports": "reports/generated/",
+    "commitRule": "Generated output is ignored unless explicitly promoted and registered as evidence."
+  }
+}

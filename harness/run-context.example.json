@@ -1,0 +1,31 @@
+{
+  "repo": "EndeavorEverlasting/power-and-proximity",
+  "branchOrWorktree": "feature/example-sprint",
+  "sprint": "Issue or sprint title",
+  "lane": "bounded implementation",
+  "ownedScope": [
+    "Name exact files and behavior owned by this sprint"
+  ],
+  "forbiddenScope": [
+    "Name adjacent work that must not be touched"
+  ],
+  "expectedArtifacts": [
+    "path/to/artifact"
+  ],
+  "validationOrder": [
+    "structural validation",
+    "static validation",
+    "unit validation",
+    "build validation",
+    "runtime proof",
+    "Git and GitHub state verification"
+  ],
+  "evidenceReviewed": [
+    "AGENTS.md",
+    "harness/README.md",
+    "harness/CODEBASE_MAP.md"
+  ],
+  "knownBlockers": [],
+  "parallelSafety": "State overlapping files and dependency gates.",
+  "nextDecision": "Name the smallest decision unlocked by this sprint."
+}
